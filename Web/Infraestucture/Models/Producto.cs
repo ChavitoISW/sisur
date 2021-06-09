@@ -17,8 +17,9 @@ namespace Infraestucture.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Producto()
         {
-            this.DetalleOrdenPedido = new HashSet<DetalleOrdenPedido>();
-            this.DetalleProducto = new HashSet<DetalleProducto>();
+            this.Contacto = new HashSet<Contacto>();
+            this.detalleMovimiento = new HashSet<detalleMovimiento>();
+            this.posicion = new HashSet<posicion>();
         }
     
         public int idProducto { get; set; }
@@ -27,12 +28,17 @@ namespace Infraestucture.Models
         public int idMarca { get; set; }
         public string descripcionProducto { get; set; }
         public string modeloProducto { get; set; }
+        public int cantMaxima { get; set; }
+        public int cantMinima { get; set; }
+        public int costo { get; set; }
         public int estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleOrdenPedido> DetalleOrdenPedido { get; set; }
+        public virtual ICollection<Contacto> Contacto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<detalleMovimiento> detalleMovimiento { get; set; }
         public virtual Marca Marca { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleProducto> DetalleProducto { get; set; }
+        public virtual ICollection<posicion> posicion { get; set; }
     }
 }

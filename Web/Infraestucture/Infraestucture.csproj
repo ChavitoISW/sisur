@@ -59,91 +59,98 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Contacto.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\detalleCompra.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+    <Compile Include="Models\detalleMovimiento.cs">
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DetalleOrdenPedido.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DetalleProducto.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EnbezadoOrdenPedido.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EncabezadoCompra.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+    <Compile Include="Models\encabezadoMovimiento.cs">
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Marca.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\movimientoTipo.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MyContext.cs" />
-    <Compile Include="Models\MyModel.Context.cs">
+    <Compile Include="Models\myModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyModel.Context.tt</DependentUpon>
+      <DependentUpon>myModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MyModel.cs">
+    <Compile Include="Models\myModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MyModel.Designer.cs">
+    <Compile Include="Models\myModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyModel.edmx</DependentUpon>
+      <DependentUpon>myModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Persona.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\posicion.cs">
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Producto.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proveedor.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rol.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ubicacion.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepositorioEncabezado.cs" />
+    <Compile Include="Repository\IRepositorioMarca.cs" />
+    <Compile Include="Repository\IRepositorioMovimiento.cs" />
+    <Compile Include="Repository\IRepositorioPersona.cs" />
+    <Compile Include="Repository\IRepositorioProducto.cs" />
+    <Compile Include="Repository\IRepositorioProveedor.cs" />
+    <Compile Include="Repository\IRepositorioRol.cs" />
+    <Compile Include="Repository\IRepositorioUbicacion.cs" />
+    <Compile Include="Repository\RepositorioEncabezado.cs" />
+    <Compile Include="Repository\RepositorioMarca.cs" />
+    <Compile Include="Repository\RepositorioMovimiento.cs" />
+    <Compile Include="Repository\RepositorioPersona.cs" />
+    <Compile Include="Repository\repositorioProducto.cs" />
+    <Compile Include="Repository\RepositorioProveedor.cs" />
+    <Compile Include="Repository\RepositorioRol.cs" />
+    <Compile Include="Repository\RepositorioUbicacion.cs" />
     <Compile Include="Utils\Log.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <Content Include="Models\myModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>myModel.edmx</DependentUpon>
+      <LastGenOutput>myModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\myModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>myModel.edmx</DependentUpon>
+      <LastGenOutput>myModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Models\MyModel.edmx">
+    <EntityDeploy Include="Models\myModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>myModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\MyModel.edmx.diagram">
-      <DependentUpon>MyModel.edmx</DependentUpon>
+    <None Include="Models\myModel.edmx.diagram">
+      <DependentUpon>myModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\MyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyModel.edmx</DependentUpon>
-      <LastGenOutput>MyModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\MyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyModel.edmx</DependentUpon>
-      <LastGenOutput>MyModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

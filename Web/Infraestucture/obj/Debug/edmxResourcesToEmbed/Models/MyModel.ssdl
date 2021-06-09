@@ -1,74 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sisurModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'sisur.dbo.Contacto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Contacto">
     <Key>
       <PropertyRef Name="idPersona" />
-      <PropertyRef Name="codProveedor" />
-      <PropertyRef Name="estado" />
+      <PropertyRef Name="idProveedor" />
+      <PropertyRef Name="codProducto" />
     </Key>
     <Property Name="idPersona" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="idProveedor" Type="int" />
-    <Property Name="codProveedor" Type="int" Nullable="false" />
+    <Property Name="idProveedor" Type="int" Nullable="false" />
+    <Property Name="codProducto" Type="int" Nullable="false" />
     <Property Name="estado" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="detalleCompra">
+  <EntityType Name="detalleMovimiento">
     <Key>
-      <PropertyRef Name="idCompra" />
-    </Key>
-    <Property Name="idCompra" Type="int" Nullable="false" />
-    <Property Name="codProducto" Type="int" Nullable="false" />
-    <Property Name="cantidad" Type="int" Nullable="false" />
-    <Property Name="idUbicacion" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DetalleOrdenPedido">
-    <Key>
-      <PropertyRef Name="idOrdenPedido" />
-    </Key>
-    <Property Name="idOrdenPedido" Type="int" Nullable="false" />
-    <Property Name="idProducto" Type="int" Nullable="false" />
-    <Property Name="cantidad" Type="int" Nullable="false" />
-    <Property Name="observaciones" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'sisur.dbo.DetalleProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-  <EntityType Name="DetalleProducto">
-    <Key>
+      <PropertyRef Name="consMovimiento" />
       <PropertyRef Name="codProducto" />
-      <PropertyRef Name="cantMaxima" />
-      <PropertyRef Name="cantMinima" />
-      <PropertyRef Name="costo" />
+      <PropertyRef Name="idUbicacion" />
     </Key>
+    <Property Name="consMovimiento" Type="int" Nullable="false" />
     <Property Name="codProducto" Type="int" Nullable="false" />
-    <Property Name="cantMaxima" Type="int" Nullable="false" />
-    <Property Name="cantMinima" Type="int" Nullable="false" />
-    <Property Name="costo" Type="int" Nullable="false" />
+    <Property Name="idUbicacion" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'sisur.dbo.EnbezadoOrdenPedido' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-  <EntityType Name="EnbezadoOrdenPedido">
+  <EntityType Name="encabezadoMovimiento">
     <Key>
-      <PropertyRef Name="idOrdenPedido" />
-      <PropertyRef Name="codPersona" />
-      <PropertyRef Name="estado" />
+      <PropertyRef Name="consMovimiento" />
     </Key>
-    <Property Name="idOrdenPedido" Type="int" Nullable="false" />
-    <Property Name="idMovimiento" Type="int" />
-    <Property Name="codPersona" Type="int" Nullable="false" />
-    <Property Name="fecha" Type="nvarchar" MaxLength="50" />
-    <Property Name="estado" Type="int" Nullable="false" />
-  </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'sisur.dbo.EncabezadoCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-  <EntityType Name="EncabezadoCompra">
-    <Key>
-      <PropertyRef Name="idCompra" />
-    </Key>
-    <Property Name="idCompra" Type="int" Nullable="false" />
-    <Property Name="idProveedor" Type="int" />
-    <Property Name="idMovimiento" Type="int" />
-    <Property Name="documento" Type="nvarchar" MaxLength="10" />
+    <Property Name="consMovimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMovimientoTipo" Type="int" Nullable="false" />
+    <Property Name="idPersona" Type="nvarchar" MaxLength="50" />
+    <Property Name="codProveedor" Type="int" />
+    <Property Name="idEmpleado" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="documento" Type="nchar" MaxLength="10" />
     <Property Name="estado" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Marca">
@@ -81,43 +45,59 @@ advertencia 6002: La tabla o vista 'sisur.dbo.EncabezadoCompra' no tiene definid
   </EntityType>
   <EntityType Name="movimientoTipo">
     <Key>
-      <PropertyRef Name="idMovimiento" />
+      <PropertyRef Name="idMovimientoTipo" />
     </Key>
-    <Property Name="idMovimiento" Type="int" Nullable="false" />
+    <Property Name="idMovimientoTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombreMovimiento" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Tipo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="descTipo" Type="nchar" MaxLength="10" />
     <Property Name="estado" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Persona">
     <Key>
       <PropertyRef Name="idPersona" />
     </Key>
-    <Property Name="codPersona" Type="int" Nullable="false" />
+    <Property Name="codPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idPersona" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="idRol" Type="int" Nullable="false" />
     <Property Name="nombrePersona" Type="nvarchar(max)" Nullable="false" />
     <Property Name="direccionPersona" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="telefonoPersona" Type="nvarchar" MaxLength="20" />
+    <Property Name="contrasena" Type="nvarchar" MaxLength="10" />
     <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pais" Type="nchar" MaxLength="25" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="posicion">
+    <Key>
+      <PropertyRef Name="idUbicacion" />
+      <PropertyRef Name="codProducto" />
+    </Key>
+    <Property Name="idUbicacion" Type="int" Nullable="false" />
+    <Property Name="codProducto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
     <Property Name="estado" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Producto">
     <Key>
-      <PropertyRef Name="idProducto" />
+      <PropertyRef Name="codProducto" />
     </Key>
-    <Property Name="idProducto" Type="int" Nullable="false" />
+    <Property Name="idProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="codProducto" Type="int" Nullable="false" />
     <Property Name="codProveedor" Type="int" Nullable="false" />
     <Property Name="idMarca" Type="int" Nullable="false" />
     <Property Name="descripcionProducto" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="modeloProducto" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantMaxima" Type="int" Nullable="false" />
+    <Property Name="cantMinima" Type="int" Nullable="false" />
+    <Property Name="costo" Type="int" Nullable="false" />
     <Property Name="estado" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Proveedor">
     <Key>
       <PropertyRef Name="idProveedor" />
     </Key>
-    <Property Name="idProveedor" Type="int" Nullable="false" />
+    <Property Name="idProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="codProveedor" Type="int" Nullable="false" />
     <Property Name="nombreProveedor" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="direccion" Type="nvarchar(max)" Nullable="false" />
@@ -142,13 +122,9 @@ advertencia 6002: La tabla o vista 'sisur.dbo.EncabezadoCompra' no tiene definid
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'sisur.dbo.Ubicacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Ubicacion">
     <Key>
       <PropertyRef Name="idUbicacion" />
-      <PropertyRef Name="descUbicacion" />
-      <PropertyRef Name="estado" />
     </Key>
     <Property Name="idUbicacion" Type="int" Nullable="false" />
     <Property Name="descUbicacion" Type="nvarchar" MaxLength="5" Nullable="false" />
@@ -166,8 +142,20 @@ advertencia 6002: La tabla o vista 'sisur.dbo.Ubicacion' no tiene definida ningu
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Contacto_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="codProducto" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="codProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Contacto_Proveedor1">
-    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
     <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Proveedor">
@@ -178,99 +166,89 @@ advertencia 6002: La tabla o vista 'sisur.dbo.Ubicacion' no tiene definida ningu
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DetalleOrdenPedido_Producto">
-    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-    <End Role="DetalleOrdenPedido" Type="Self.DetalleOrdenPedido" Multiplicity="*" />
+  <Association Name="FK_detalleMovimiento_encabezadoMovimiento">
+    <End Role="encabezadoMovimiento" Type="Self.encabezadoMovimiento" Multiplicity="1" />
+    <End Role="detalleMovimiento" Type="Self.detalleMovimiento" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="idProducto" />
+      <Principal Role="encabezadoMovimiento">
+        <PropertyRef Name="consMovimiento" />
       </Principal>
-      <Dependent Role="DetalleOrdenPedido">
-        <PropertyRef Name="idProducto" />
+      <Dependent Role="detalleMovimiento">
+        <PropertyRef Name="consMovimiento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DetalleProducto_Producto">
-    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-    <End Role="DetalleProducto" Type="Self.DetalleProducto" Multiplicity="*" />
+  <Association Name="FK_detalleMovimiento_posicion1">
+    <End Role="posicion" Type="Self.posicion" Multiplicity="1" />
+    <End Role="detalleMovimiento" Type="Self.detalleMovimiento" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="idProducto" />
+      <Principal Role="posicion">
+        <PropertyRef Name="idUbicacion" />
+        <PropertyRef Name="codProducto" />
       </Principal>
-      <Dependent Role="DetalleProducto">
+      <Dependent Role="detalleMovimiento">
+        <PropertyRef Name="idUbicacion" />
         <PropertyRef Name="codProducto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EnbezadoOrdenPedido_DetalleOrdenPedido">
-    <End Role="DetalleOrdenPedido" Type="Self.DetalleOrdenPedido" Multiplicity="1" />
-    <End Role="EnbezadoOrdenPedido" Type="Self.EnbezadoOrdenPedido" Multiplicity="*" />
+  <Association Name="FK_detalleMovimiento_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="detalleMovimiento" Type="Self.detalleMovimiento" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="DetalleOrdenPedido">
-        <PropertyRef Name="idOrdenPedido" />
+      <Principal Role="Producto">
+        <PropertyRef Name="codProducto" />
       </Principal>
-      <Dependent Role="EnbezadoOrdenPedido">
-        <PropertyRef Name="idOrdenPedido" />
+      <Dependent Role="detalleMovimiento">
+        <PropertyRef Name="codProducto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EnbezadoOrdenPedido_movimientoTipo">
-    <End Role="movimientoTipo" Type="Self.movimientoTipo" Multiplicity="0..1" />
-    <End Role="EnbezadoOrdenPedido" Type="Self.EnbezadoOrdenPedido" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="movimientoTipo">
-        <PropertyRef Name="idMovimiento" />
-      </Principal>
-      <Dependent Role="EnbezadoOrdenPedido">
-        <PropertyRef Name="idMovimiento" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EncabezadoCompra_detalleCompra">
-    <End Role="detalleCompra" Type="Self.detalleCompra" Multiplicity="1" />
-    <End Role="EncabezadoCompra" Type="Self.EncabezadoCompra" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="detalleCompra">
-        <PropertyRef Name="idCompra" />
-      </Principal>
-      <Dependent Role="EncabezadoCompra">
-        <PropertyRef Name="idCompra" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EncabezadoCompra_movimientoTipo">
-    <End Role="movimientoTipo" Type="Self.movimientoTipo" Multiplicity="0..1" />
-    <End Role="EncabezadoCompra" Type="Self.EncabezadoCompra" Multiplicity="*" />
+  <Association Name="FK_encabezadoMovimiento_movimientoTipo1">
+    <End Role="movimientoTipo" Type="Self.movimientoTipo" Multiplicity="1" />
+    <End Role="encabezadoMovimiento" Type="Self.encabezadoMovimiento" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="movimientoTipo">
-        <PropertyRef Name="idMovimiento" />
+        <PropertyRef Name="idMovimientoTipo" />
       </Principal>
-      <Dependent Role="EncabezadoCompra">
-        <PropertyRef Name="idMovimiento" />
+      <Dependent Role="encabezadoMovimiento">
+        <PropertyRef Name="idMovimientoTipo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EncabezadoCompra_Proveedor1">
+  <Association Name="FK_encabezadoMovimiento_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="encabezadoMovimiento" Type="Self.encabezadoMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="encabezadoMovimiento">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encabezadoMovimiento_Persona1">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="encabezadoMovimiento" Type="Self.encabezadoMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="encabezadoMovimiento">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encabezadoMovimiento_Proveedor">
     <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
-    <End Role="EncabezadoCompra" Type="Self.EncabezadoCompra" Multiplicity="*" />
+    <End Role="encabezadoMovimiento" Type="Self.encabezadoMovimiento" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Proveedor">
         <PropertyRef Name="idProveedor" />
       </Principal>
-      <Dependent Role="EncabezadoCompra">
-        <PropertyRef Name="idProveedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Marca_Producto">
-    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-    <End Role="Marca" Type="Self.Marca" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="idProducto" />
-      </Principal>
-      <Dependent Role="Marca">
-        <PropertyRef Name="idMarca" />
+      <Dependent Role="encabezadoMovimiento">
+        <PropertyRef Name="codProveedor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -286,116 +264,110 @@ advertencia 6002: La tabla o vista 'sisur.dbo.Ubicacion' no tiene definida ningu
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Ubicacion_detalleCompra">
-    <End Role="detalleCompra" Type="Self.detalleCompra" Multiplicity="1" />
-    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="*" />
+  <Association Name="FK_posicion_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="posicion" Type="Self.posicion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="detalleCompra">
-        <PropertyRef Name="idCompra" />
+      <Principal Role="Producto">
+        <PropertyRef Name="codProducto" />
       </Principal>
-      <Dependent Role="Ubicacion">
+      <Dependent Role="posicion">
+        <PropertyRef Name="codProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_posicion_Ubicacion">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="1" />
+    <End Role="posicion" Type="Self.posicion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="idUbicacion" />
+      </Principal>
+      <Dependent Role="posicion">
         <PropertyRef Name="idUbicacion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Producto_Marca">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="idMarca" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="idMarca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="sisurModelStoreContainer">
-    <EntitySet Name="detalleCompra" EntityType="Self.detalleCompra" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DetalleOrdenPedido" EntityType="Self.DetalleOrdenPedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="detalleMovimiento" EntityType="Self.detalleMovimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="encabezadoMovimiento" EntityType="Self.encabezadoMovimiento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="movimientoTipo" EntityType="Self.movimientoTipo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="posicion" EntityType="Self.posicion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Contacto" EntityType="Self.Contacto" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Contacto].[idPersona] AS [idPersona], 
-    [Contacto].[idProveedor] AS [idProveedor], 
-    [Contacto].[codProveedor] AS [codProveedor], 
-    [Contacto].[estado] AS [estado]
-    FROM [dbo].[Contacto] AS [Contacto]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="DetalleProducto" EntityType="Self.DetalleProducto" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [DetalleProducto].[codProducto] AS [codProducto], 
-    [DetalleProducto].[cantMaxima] AS [cantMaxima], 
-    [DetalleProducto].[cantMinima] AS [cantMinima], 
-    [DetalleProducto].[costo] AS [costo]
-    FROM [dbo].[DetalleProducto] AS [DetalleProducto]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="EnbezadoOrdenPedido" EntityType="Self.EnbezadoOrdenPedido" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [EnbezadoOrdenPedido].[idOrdenPedido] AS [idOrdenPedido], 
-    [EnbezadoOrdenPedido].[idMovimiento] AS [idMovimiento], 
-    [EnbezadoOrdenPedido].[codPersona] AS [codPersona], 
-    [EnbezadoOrdenPedido].[fecha] AS [fecha], 
-    [EnbezadoOrdenPedido].[estado] AS [estado]
-    FROM [dbo].[EnbezadoOrdenPedido] AS [EnbezadoOrdenPedido]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="EncabezadoCompra" EntityType="Self.EncabezadoCompra" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [EncabezadoCompra].[idCompra] AS [idCompra], 
-    [EncabezadoCompra].[idProveedor] AS [idProveedor], 
-    [EncabezadoCompra].[idMovimiento] AS [idMovimiento], 
-    [EncabezadoCompra].[documento] AS [documento], 
-    [EncabezadoCompra].[estado] AS [estado]
-    FROM [dbo].[EncabezadoCompra] AS [EncabezadoCompra]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Ubicacion].[idUbicacion] AS [idUbicacion], 
-    [Ubicacion].[descUbicacion] AS [descUbicacion], 
-    [Ubicacion].[estado] AS [estado]
-    FROM [dbo].[Ubicacion] AS [Ubicacion]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Contacto_Persona" Association="Self.FK_Contacto_Persona">
       <End Role="Persona" EntitySet="Persona" />
+      <End Role="Contacto" EntitySet="Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacto_Producto" Association="Self.FK_Contacto_Producto">
+      <End Role="Producto" EntitySet="Producto" />
       <End Role="Contacto" EntitySet="Contacto" />
     </AssociationSet>
     <AssociationSet Name="FK_Contacto_Proveedor1" Association="Self.FK_Contacto_Proveedor1">
       <End Role="Proveedor" EntitySet="Proveedor" />
       <End Role="Contacto" EntitySet="Contacto" />
     </AssociationSet>
-    <AssociationSet Name="FK_DetalleOrdenPedido_Producto" Association="Self.FK_DetalleOrdenPedido_Producto">
+    <AssociationSet Name="FK_detalleMovimiento_encabezadoMovimiento" Association="Self.FK_detalleMovimiento_encabezadoMovimiento">
+      <End Role="encabezadoMovimiento" EntitySet="encabezadoMovimiento" />
+      <End Role="detalleMovimiento" EntitySet="detalleMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalleMovimiento_posicion1" Association="Self.FK_detalleMovimiento_posicion1">
+      <End Role="posicion" EntitySet="posicion" />
+      <End Role="detalleMovimiento" EntitySet="detalleMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalleMovimiento_Producto" Association="Self.FK_detalleMovimiento_Producto">
       <End Role="Producto" EntitySet="Producto" />
-      <End Role="DetalleOrdenPedido" EntitySet="DetalleOrdenPedido" />
+      <End Role="detalleMovimiento" EntitySet="detalleMovimiento" />
     </AssociationSet>
-    <AssociationSet Name="FK_DetalleProducto_Producto" Association="Self.FK_DetalleProducto_Producto">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="DetalleProducto" EntitySet="DetalleProducto" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EnbezadoOrdenPedido_DetalleOrdenPedido" Association="Self.FK_EnbezadoOrdenPedido_DetalleOrdenPedido">
-      <End Role="DetalleOrdenPedido" EntitySet="DetalleOrdenPedido" />
-      <End Role="EnbezadoOrdenPedido" EntitySet="EnbezadoOrdenPedido" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EnbezadoOrdenPedido_movimientoTipo" Association="Self.FK_EnbezadoOrdenPedido_movimientoTipo">
+    <AssociationSet Name="FK_encabezadoMovimiento_movimientoTipo1" Association="Self.FK_encabezadoMovimiento_movimientoTipo1">
       <End Role="movimientoTipo" EntitySet="movimientoTipo" />
-      <End Role="EnbezadoOrdenPedido" EntitySet="EnbezadoOrdenPedido" />
+      <End Role="encabezadoMovimiento" EntitySet="encabezadoMovimiento" />
     </AssociationSet>
-    <AssociationSet Name="FK_EncabezadoCompra_detalleCompra" Association="Self.FK_EncabezadoCompra_detalleCompra">
-      <End Role="detalleCompra" EntitySet="detalleCompra" />
-      <End Role="EncabezadoCompra" EntitySet="EncabezadoCompra" />
+    <AssociationSet Name="FK_encabezadoMovimiento_Persona" Association="Self.FK_encabezadoMovimiento_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="encabezadoMovimiento" EntitySet="encabezadoMovimiento" />
     </AssociationSet>
-    <AssociationSet Name="FK_EncabezadoCompra_movimientoTipo" Association="Self.FK_EncabezadoCompra_movimientoTipo">
-      <End Role="movimientoTipo" EntitySet="movimientoTipo" />
-      <End Role="EncabezadoCompra" EntitySet="EncabezadoCompra" />
+    <AssociationSet Name="FK_encabezadoMovimiento_Persona1" Association="Self.FK_encabezadoMovimiento_Persona1">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="encabezadoMovimiento" EntitySet="encabezadoMovimiento" />
     </AssociationSet>
-    <AssociationSet Name="FK_EncabezadoCompra_Proveedor1" Association="Self.FK_EncabezadoCompra_Proveedor1">
+    <AssociationSet Name="FK_encabezadoMovimiento_Proveedor" Association="Self.FK_encabezadoMovimiento_Proveedor">
       <End Role="Proveedor" EntitySet="Proveedor" />
-      <End Role="EncabezadoCompra" EntitySet="EncabezadoCompra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Marca_Producto" Association="Self.FK_Marca_Producto">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="Marca" EntitySet="Marca" />
+      <End Role="encabezadoMovimiento" EntitySet="encabezadoMovimiento" />
     </AssociationSet>
     <AssociationSet Name="FK_Persona_Rol" Association="Self.FK_Persona_Rol">
       <End Role="Rol" EntitySet="Rol" />
       <End Role="Persona" EntitySet="Persona" />
     </AssociationSet>
-    <AssociationSet Name="FK_Ubicacion_detalleCompra" Association="Self.FK_Ubicacion_detalleCompra">
-      <End Role="detalleCompra" EntitySet="detalleCompra" />
+    <AssociationSet Name="FK_posicion_Producto" Association="Self.FK_posicion_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="posicion" EntitySet="posicion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posicion_Ubicacion" Association="Self.FK_posicion_Ubicacion">
       <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="posicion" EntitySet="posicion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Marca" Association="Self.FK_Producto_Marca">
+      <End Role="Marca" EntitySet="Marca" />
+      <End Role="Producto" EntitySet="Producto" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

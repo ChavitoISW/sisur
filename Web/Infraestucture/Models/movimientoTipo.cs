@@ -17,18 +17,16 @@ namespace Infraestucture.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public movimientoTipo()
         {
-            this.EnbezadoOrdenPedido = new HashSet<EnbezadoOrdenPedido>();
-            this.EncabezadoCompra = new HashSet<EncabezadoCompra>();
+            this.encabezadoMovimiento = new HashSet<encabezadoMovimiento>();
         }
     
-        public int idMovimiento { get; set; }
+        public int idMovimientoTipo { get; set; }
         public string nombreMovimiento { get; set; }
-        public string Tipo { get; set; }
+        public int Tipo { get; set; }
+        public string descTipo { get; set; }
         public int estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EnbezadoOrdenPedido> EnbezadoOrdenPedido { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EncabezadoCompra> EncabezadoCompra { get; set; }
+        public virtual ICollection<encabezadoMovimiento> encabezadoMovimiento { get; set; }
     }
 }

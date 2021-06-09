@@ -13,10 +13,10 @@ namespace Infraestucture.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sisurEntities : DbContext
+    public partial class sisurEntities1 : DbContext
     {
-        public sisurEntities()
-            : base("name=sisurEntities")
+        public sisurEntities1()
+            : base("name=sisurEntities1")
         {
         }
     
@@ -25,19 +25,17 @@ namespace Infraestucture.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<detalleCompra> detalleCompra { get; set; }
-        public virtual DbSet<DetalleOrdenPedido> DetalleOrdenPedido { get; set; }
+        public virtual DbSet<Contacto> Contacto { get; set; }
+        public virtual DbSet<detalleMovimiento> detalleMovimiento { get; set; }
+        public virtual DbSet<encabezadoMovimiento> encabezadoMovimiento { get; set; }
         public virtual DbSet<Marca> Marca { get; set; }
         public virtual DbSet<movimientoTipo> movimientoTipo { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
+        public virtual DbSet<posicion> posicion { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Proveedor> Proveedor { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Contacto> Contacto { get; set; }
-        public virtual DbSet<DetalleProducto> DetalleProducto { get; set; }
-        public virtual DbSet<EnbezadoOrdenPedido> EnbezadoOrdenPedido { get; set; }
-        public virtual DbSet<EncabezadoCompra> EncabezadoCompra { get; set; }
         public virtual DbSet<Ubicacion> Ubicacion { get; set; }
     }
 }

@@ -1,7 +1,9 @@
 using appSISUR.Utils;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -26,6 +28,15 @@ namespace appSISUR
         {
             var ex = Server.GetLastError();
             Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod());
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            CultureInfo myCulture = (CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            myCulture.NumberFormat.NumberDecimalSeparator = ".";
+            myCulture.DateTimeFormat.ShortDatePattern = "dd/mm/yyyy";
+            myCulture.DateTimeFormat.DateSeparator = "/";
+            Thread.CurrentThread.CurrentCulture = myCulture;
         }
     }
 }

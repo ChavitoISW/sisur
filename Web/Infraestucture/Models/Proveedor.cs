@@ -18,7 +18,7 @@ namespace Infraestucture.Models
         public Proveedor()
         {
             this.Contacto = new HashSet<Contacto>();
-            this.EncabezadoCompra = new HashSet<EncabezadoCompra>();
+            this.encabezadoMovimiento = new HashSet<encabezadoMovimiento>();
         }
     
         public int idProveedor { get; set; }
@@ -31,6 +31,6 @@ namespace Infraestucture.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contacto> Contacto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EncabezadoCompra> EncabezadoCompra { get; set; }
+        public virtual ICollection<encabezadoMovimiento> encabezadoMovimiento { get; set; }
     }
 }

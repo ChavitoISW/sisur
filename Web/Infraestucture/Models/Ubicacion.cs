@@ -14,10 +14,17 @@ namespace Infraestucture.Models
     
     public partial class Ubicacion
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Ubicacion()
+        {
+            this.posicion = new HashSet<posicion>();
+        }
+    
         public int idUbicacion { get; set; }
         public string descUbicacion { get; set; }
         public int estado { get; set; }
     
-        public virtual detalleCompra detalleCompra { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<posicion> posicion { get; set; }
     }
 }

@@ -14,10 +14,17 @@ namespace Infraestucture.Models
     
     public partial class Marca
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Marca()
+        {
+            this.Producto = new HashSet<Producto>();
+        }
+    
         public int idMarca { get; set; }
         public string nombreMarca { get; set; }
         public int estado { get; set; }
     
-        public virtual Producto Producto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Producto> Producto { get; set; }
     }
 }

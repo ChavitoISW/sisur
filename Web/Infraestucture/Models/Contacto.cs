@@ -15,11 +15,12 @@ namespace Infraestucture.Models
     public partial class Contacto
     {
         public string idPersona { get; set; }
-        public Nullable<int> idProveedor { get; set; }
-        public int codProveedor { get; set; }
+        public int idProveedor { get; set; }
+        public int codProducto { get; set; }
         public int estado { get; set; }
     
         public virtual Persona Persona { get; set; }
+        public virtual Producto Producto { get; set; }
         public virtual Proveedor Proveedor { get; set; }
     }
 }
