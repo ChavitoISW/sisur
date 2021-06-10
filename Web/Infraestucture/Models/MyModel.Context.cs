@@ -13,10 +13,10 @@ namespace Infraestucture.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sisurEntities1 : DbContext
+    public partial class sisurEntities : DbContext
     {
-        public sisurEntities1()
-            : base("name=sisurEntities1")
+        public sisurEntities()
+            : base("name=sisurEntities")
         {
         }
     

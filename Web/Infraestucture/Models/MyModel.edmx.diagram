@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9d4c405cf1014ee5964d49d99e255a67" Name="Diagram1">
+      <Diagram DiagramId="37a36d70559b454c94c4dc9733091f9d" Name="Diagram1">
         <EntityTypeShape EntityType="sisurModel.Contacto" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="sisurModel.detalleMovimiento" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="sisurModel.encabezadoMovimiento" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />

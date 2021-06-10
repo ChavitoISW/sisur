@@ -328,7 +328,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="sisurEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="sisurEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Contacto" EntityType="Self.Contacto" />
     <EntitySet Name="detalleMovimiento" EntityType="Self.detalleMovimiento" />
     <EntitySet Name="encabezadoMovimiento" EntityType="Self.encabezadoMovimiento" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infraestucture.Models
 {
-  public class MyContext: sisurEntities1
+  public class MyContext: sisurEntities
     {
         public MyContext() { }
     }
