@@ -25,7 +25,7 @@ namespace appSISUR
             bundles.Add(new StyleBundle("~/Content/css").Include(
                   // "~/Content/bootstrap.css",
 
-                  //"~/Content/bootstrap-flatly.min.css",
+                  "~/Content/bootstrap-flatly.min.css",
                      "~/Content/bootstrap.min.css",
                      "~/Content/bootstrap-Sisur.css"));
         }

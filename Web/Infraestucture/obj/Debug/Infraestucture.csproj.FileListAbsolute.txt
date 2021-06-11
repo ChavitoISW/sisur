@@ -25,3 +25,4 @@ D:\isw\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.csproj.CoreComp
 D:\isw\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.csproj.CopyComplete
 D:\isw\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.dll
 D:\isw\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.pdb
+C:\Users\dacas\Desktop\proyectoSISUR\Web\Infraestucture\obj\Debug\Infraestucture.csprojAssemblyReference.cache

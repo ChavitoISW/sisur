@@ -1,39 +1,81 @@
 ﻿@model IEnumerable<Infraestucture.Models.Rol>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Roles";
 }
 
-<h2>Index</h2>
+
+<h2>Roles</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcionRol)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcionRol)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idRol }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idRol }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idRol })
-        </td>
-    </tr>
-}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+               
+                <li >
+                    @Html.ActionLink("Marcas", "Index", "Marca")
+                </li>
+                <li >
+                    @Html.ActionLink("Usuarios", "Index", "Persona")
+                </li>
+                <li >
+                    @Html.ActionLink("Roles", "Index", "Rol")
+                </li>           
+                <li >
+                    @Html.ActionLink("Proveedores", "Index", "Proveedor")
+                </li>
+                <li >
+                    @Html.ActionLink("Producto", "Index", "Producto")
+                </li>
+                <li >
+                    @Html.ActionLink("Ubicaciones", "Index", "Ubicacion")
+                </li>
+                <li >
+                    @Html.ActionLink("Movimientos", "Index", "Movimiento")
+                </li>
+            </ul>
+        
+        </div>
+    </div>
+</nav>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcionRol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcionRol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.idRol }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.idRol }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idRol })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
