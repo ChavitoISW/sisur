@@ -1,91 +1,71 @@
 ﻿@{
     ViewBag.Title = "Repuestos SISUR prueba";
-    
+
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="~/Scripts/chart-area-demo.js"></script>
+<!--
+<div class="jumbotron" style="background-image:url(../../Imagenes/logoSisur.PNG)" width="95%" height="100px">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-       <!-- <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>-->
-
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
-                <!--   <li class="nav-item">
-        <a class="nav-link active" href="#">
-            Home
-            <span class="visually-hidden">(current)</span>
-        </a>
-    </li>-->
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Generar Pedido de nuevo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Recibir Mercaderia prueba 5</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inventario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Traslados</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Ubicaciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Proveedores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Seguridad</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mi Usuario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="About.cshtml">Acerca de</a>
-                </li>
-
-            </ul>
-           <!-- <form class="d-flex">
-                <input class="form-control me-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>-->
-        </div>
-    </div>
-</nav>
-
-<div class="jumbotron" style="background-image:url(../../Imagenes/logoSisur.PNG)" width="95%" height="300px" >
-   <h1 style="text-decoration-color:darkgoldenrod">    </h1>
-   <h1 style="text-decoration-color:darkgoldenrod">    </h1>
     <p class="lead"></p>
-   
-</div>
+
+</div>-->
+
 
 <div class="row">
-    <div class="col-md-3">
-        <h2>Total de Repuetos</h2>
-        <p>
-            Contamos con un total de más de 10000 articulos para todo tipo de vehiculo, tanto genericos como originales, por lo que somos la mejor opcion para conseguir ese repuesto que tanto buscas
-        </p>
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-area me-1"></i>
+                Salidas de Mercaderia
+            </div>
+            <div class="card-body"><canvas id="myAreaChartOut" width="100%" height="40"></canvas></div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h2>Salidas Diarias</h2>
-        <p>Aqui se muestran la cantidad de salidas de invetario que se ejecutan a diario</p>
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-area me-1"></i>
+                Ingresos de mercaderia
+            </div>
+            <div class="card-body"><canvas id="myAreaChartIn" width="100%" height="40"></canvas></div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h2>Entradas Diarias</h2>
-        <p>Aqui se muestran la cantidad de entradas de invetario que se ejecutan a diario</p>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Primary Card</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="#">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h2>Productos con Bajo Stock</h2>
-        <p>Aqui se muestran los productos que hay que reponer en el inventario, sera un excel autogenerado</p>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">Warning Card</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="#">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">Success Card</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="#">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-danger text-white mb-4">
+            <div class="card-body">Danger Card</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="#">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
     </div>
 </div>

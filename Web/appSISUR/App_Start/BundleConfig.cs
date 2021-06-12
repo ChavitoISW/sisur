@@ -20,14 +20,19 @@ namespace appSISUR
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                        "~/Scripts/chart-area-demo.js",
+                        "~/Scripts/bootstrap.js"));
+                    
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                  // "~/Content/bootstrap.css",
+                 // "~/Content/bootstrap.css",
 
                   "~/Content/bootstrap-flatly.min.css",
-                     "~/Content/bootstrap.min.css",
-                     "~/Content/bootstrap-Sisur.css"));
+                    "~/Content/bootstrap.min.css",
+                    "~/Content/css/stylesSisur2.css",
+                    "~/Content/bootstrap-Sisur.css"));
+               
+
         }
     }
 }
