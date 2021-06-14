@@ -11,6 +11,7 @@ namespace Infraestucture.Repository
     {
         IEnumerable<Proveedor> GetProveedor();
         Proveedor GetProveedorByCodigo(int codigo);
+        Proveedor GetProveedorById(int Id);
         Proveedor GetProveedorByNombre(String nombre);
         Proveedor GetProveedorByestado(int estado);
     }

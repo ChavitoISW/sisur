@@ -28,5 +28,46 @@ namespace appSISUR.Controllers
             }
             return View(lista);
         }
+
+
+          public ActionResult Details(int? id)
+        {
+            ServiceProveedor _ServiceProveedor = new ServiceProveedor();
+            Proveedor Proveedor = null;
+
+            try
+            {
+                // Si va null
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                Proveedor = _ServiceProveedor.GetProveedorById (id.Value);
+                if (Proveedor == null)
+                {
+                    TempData["Message"] = "No existe el Proveedor solicitado";
+                    TempData["Redirect"] = "Proveedor";
+                    TempData["Redirect-Action"] = "IndexAdmin";
+                    // Redireccion a la captura del Error
+                    return RedirectToAction("Default", "Error");
+                }
+                ViewBag.Titulo = "Detalle Proveedor";
+                return View(Proveedor);
+            }
+            catch (Exception ex)
+            {
+                // Salvar el error en un archivo 
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+                TempData["Redirect"] = "Proveedor";
+                TempData["Redirect-Action"] = "IndexAdmin";
+                // Redireccion a la captura del Error
+                return RedirectToAction("Default", "Error");
+            }
+        }
     }
+
+
+
 }

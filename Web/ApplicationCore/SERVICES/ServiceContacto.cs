@@ -18,12 +18,14 @@ namespace ApplicationCore.SERVICES
 
         public Contacto GetContactoByProducto(int id)
         {
-            throw new NotImplementedException();
+            IRepositoryContacto repositoryContacto = new RepositoryContacto();
+            return repositoryContacto.GetContactoByProducto(id);
         }
 
         public Contacto GetContactoByProveedor(int id)
         {
-            throw new NotImplementedException();
+            IRepositoryContacto repositoryContacto = new RepositoryContacto();
+            return repositoryContacto.GetContactoByProveedor(id);
         }
     }
 }

@@ -26,6 +26,12 @@ namespace ApplicationCore.SERVICES
             throw new NotImplementedException();
         }
 
+        public Proveedor GetProveedorById(int Id)
+        {
+            IRepositorioProveedor repository = new RepositorioProveedor();
+            return repository.GetProveedorById(Id);
+        }
+
         public Proveedor GetProveedorByNombre(string nombre)
         {
             throw new NotImplementedException();

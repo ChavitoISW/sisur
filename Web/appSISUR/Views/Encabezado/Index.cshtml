@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2> @ViewBag.Titulo</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 
 <table class="table">
     <tr>
@@ -18,9 +16,7 @@
         <th>
             @Html.DisplayNameFor(model => model.documento)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.movimientoTipo.nombreMovimiento)
         </th>
@@ -44,9 +40,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.documento)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.movimientoTipo.nombreMovimiento)
         </td>
@@ -60,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.Proveedor.nombreProveedor)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.consMovimiento }) |
-            @Html.ActionLink("Details", "Details", new { id=item.consMovimiento }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.consMovimiento })
+            @Html.ActionLink("Editar", "Edit", new { id=item.consMovimiento }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.consMovimiento }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.consMovimiento })
         </td>
     </tr>
 }

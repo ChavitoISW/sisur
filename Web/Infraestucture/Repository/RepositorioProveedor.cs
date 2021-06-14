@@ -3,6 +3,7 @@ using Infraestucture.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,18 @@ namespace Infraestucture.Repository
         public Proveedor GetProveedorByestado(int estado)
         {
             throw new NotImplementedException();
+        }
+
+        public Proveedor GetProveedorById(int Id)
+        {
+            Proveedor oProveedor = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oProveedor = ctx.Proveedor.Where(x => x.idProveedor == Id).Include(x => x.Contacto)
+                    .FirstOrDefault();
+            }
+            return oProveedor;
         }
 
         public Proveedor GetProveedorByNombre(string nombre)

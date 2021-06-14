@@ -43,13 +43,32 @@ namespace Infraestucture.Repository
                 throw;
             }
         }
+      
+
         public Contacto GetContactoByProducto(int id)
         {
-            throw new NotImplementedException();
+            Contacto oContacto = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oContacto = ctx.Contacto.Where(x => x.codProducto == id).
+                    Include(x => x.Producto).Include(x => x.Proveedor).Include(x => x.Persona).
+                    FirstOrDefault();
+            }
+            return oContacto;
         }
+
         public Contacto GetContactoByProveedor(int id)
         {
-            throw new NotImplementedException();
+            Contacto oPosicion = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oPosicion = ctx.Contacto.Where(x => x.idProveedor  == id)
+                   // .Include(x => x. Ubicacion).Include(x => x.Producto).Include(x => x.Producto.Marca).Include(x => x.Producto.Contacto)
+                    .FirstOrDefault();
+            }
+            return oPosicion;
         }
 
         public Contacto Save(Contacto contacto)

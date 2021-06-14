@@ -23,7 +23,8 @@ namespace ApplicationCore.SERVICES
 
         public encabezadoMovimiento GetMovimientoByConsecutivo(int consecutivo)
         {
-            throw new NotImplementedException();
+            IRepositorioEncabezado repository = new RepositorioEncabezado();
+            return repository.GetMovimientoByConsecutivo(consecutivo);
         }
 
         public encabezadoMovimiento GetMovimientoByEmpleado(int empleado)

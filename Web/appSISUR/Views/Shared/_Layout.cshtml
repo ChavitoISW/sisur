@@ -26,11 +26,11 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pedidos
+                                    Movimientos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" @Html.ActionLink("Historial", "Index", "Encabezado")</a>
-                                    <a class="dropdown-item" @Html.ActionLink("Nuevo", "Index", "Encabezado")</a>
+                                    <a class="dropdown-item" @Html.ActionLink("Listar Movimientos", "Index", "Encabezado")</a>
+                                    <a class="dropdown-item" @Html.ActionLink("Detalle Movimientos", "Index", "Detalle")</a>
                                     <!--  <div class="dropdown-divider"></div>-->
                                     <a class="dropdown-item" @Html.ActionLink("Buscar Orden", "Index", "Encabezado")</a>
                                 </div>
@@ -41,7 +41,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" @Html.ActionLink("Listado de Productos", "Index", "Producto")</a>
-                                    <a class="dropdown-item" @Html.ActionLink("Agregar Producto", "Index", "Producto")</a>
+                                    <a class="dropdown-item" @Html.ActionLink("Productos Por Proveedor", "DetailsProveedor", "Producto")</a>
                                     <a class="dropdown-item" @Html.ActionLink("Buscar Producto", "Index", "Producto")</a>
                                     <a class="dropdown-item" @Html.ActionLink("Ver Proveedores Por Producto", "Index", "Contacto")</a>
                                     <!--  <div class="dropdown-divider"></div>-->

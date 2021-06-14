@@ -91,5 +91,149 @@ namespace Infraestucture.Models
 
     }
 
+    internal partial class personaMetadata
+    {
+        [Display(Name = "Codigo")]
+        public int codPersona { get; set; }
+
+        [Display(Name = "Id. Persona")]
+        public string idPersona { get; set; }
+
+        [Display(Name = "Rol")]
+        public int idRol { get; set; }
+
+        [Display(Name = "Nombre")]
+        public string nombrePersona { get; set; }
+
+        [Display(Name = "Dirección")]
+        public string direccionPersona { get; set; }
+
+        [Display(Name = "Telefono")]
+        public string telefonoPersona { get; set; }
+     
+        public string contrasena { get; set; }
+
+        [Display(Name = "Email")]
+        public string email { get; set; }
+
+        [Display(Name = "País")]
+        public string pais { get; set; }
+
+        [Display(Name = "Estado")]
+        public int estado { get; set; }
+
+        [Display(Name = "Contacto")]
+        public virtual ICollection<Contacto> Contacto { get; set; }
+        public virtual ICollection<encabezadoMovimiento> encabezadoMovimiento { get; set; }
+        public virtual ICollection<encabezadoMovimiento> encabezadoMovimiento1 { get; set; }
+        [Display(Name = "Rol")]
+        public virtual Rol Rol { get; set; }
+    }
+
+    internal partial class marcaMetadata
+    {
+        [Display(Name = "Id Marca")]
+        public int idMarca { get; set; }
+
+        [Display(Name = "Marca")]
+        public string nombreMarca { get; set; }
+
+        [Display(Name = "Estado")]
+        public int estado { get; set; }
+
+        [Display(Name = "Producto")]
+        public virtual ICollection<Producto> Producto { get; set; }
+    }
+
+    internal partial class proveedorMetadata
+    {
+        [Display(Name = "Id Proveedor")]
+        public int idProveedor { get; set; }
+
+        [Display(Name = "Codigo Proveedor")]
+        public int codProveedor { get; set; }
+
+        [Display(Name = "Proveedor")]
+        public string nombreProveedor { get; set; }
+
+        [Display(Name = "Dirección")]
+        public string direccion { get; set; }
+
+        [Display(Name = "País")]
+        public string pais { get; set; }
+
+        [Display(Name = "Estado")]
+        public int estado { get; set; }
+
+        [Display(Name = "Contacto")]
+        public virtual ICollection<Contacto> Contacto { get; set; }
+
+        [Display(Name = "Encabezado")]
+        public virtual ICollection<encabezadoMovimiento> encabezadoMovimiento { get; set; }
+    }
+
+    internal partial class encabezadoMetadata
+    {
+        [Display(Name = "# Movimiento")]
+        public int consMovimiento { get; set; }
+
+        [Display(Name = "Id Tipo Movimiento")]
+        public int idMovimientoTipo { get; set; }
+
+        [Display(Name = "Id Persona")]
+        public string idPersona { get; set; }
+
+        [Display(Name = "Cod. Proveedor")]
+        public Nullable<int> codProveedor { get; set; }
+
+        [Display(Name = " Id Empleado")]
+        public string idEmpleado { get; set; }
+
+        [Display(Name = "Fecha")]
+        public string fecha { get; set; }
+
+        [Display(Name = "Documento Refrencia")]
+        public string documento { get; set; }
+
+        [Display(Name = "Estado")]
+        public string estado { get; set; }
+
+        [Display(Name = "Detalle")]
+        public virtual ICollection<detalleMovimiento> detalleMovimiento { get; set; }
+
+        [Display(Name = "Tipo de Movimiento")]
+        public virtual movimientoTipo movimientoTipo { get; set; }
+
+        [Display(Name = "Cliente")]
+        public virtual Persona Persona { get; set; }
+
+        [Display(Name = "Intermediario")]
+        public virtual Persona Persona1 { get; set; }
+
+        [Display(Name = "Casa Comercial")]
+        public virtual Proveedor Proveedor { get; set; }
+    }
+
+
+    internal partial class movimientoTipoMetadata
+    {
+        [Display(Name = "# Movimiento")]
+        public int idMovimientoTipo { get; set; }
+
+        [Display(Name = "Movimiento")]
+        public string nombreMovimiento { get; set; }
+
+        [Display(Name = "Tipo Movimiento")]
+        public int Tipo { get; set; }
+
+        [Display(Name = "Detalle Movimiento")]
+        public string descTipo { get; set; }
+
+        [Display(Name = "Estado")]
+        public int estado { get; set; }
+
+        [Display(Name = "Encabezado")]
+        public virtual ICollection<encabezadoMovimiento> encabezadoMovimiento { get; set; }
+    }
 
 }

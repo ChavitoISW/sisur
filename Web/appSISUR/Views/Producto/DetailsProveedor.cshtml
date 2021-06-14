@@ -1,15 +1,22 @@
 ﻿@model Infraestucture.Models.Producto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "DetailsProveedor";
 }
 
-<h2> @ViewBag.titulo</h2>
+<h2>DetailsProveedor</h2>
 
 <div>
     <h4>Producto</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idProducto)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.codProveedor)
@@ -60,18 +67,24 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Marca.nombreMarca)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Marca.nombreMarca)
         </dd>
-      
-
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.idProducto }) |
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codProducto }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

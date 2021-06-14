@@ -10,30 +10,31 @@ using System.Web.Mvc;
 
 namespace appSISUR.Controllers
 {
-    public class ProductoController : Controller
+    public class DetalleController : Controller
     {
-        // GET: Producto
+        // GET: Detalle
         public ActionResult Index()
         {
-            IEnumerable<Producto> lista = null;
+            IEnumerable<detalleMovimiento> lista = null;
             try
             {
-                IServiceProducto _ServiceProducto = new ServiceProducto();
-                lista = _ServiceProducto.GetProductos();
+                IServiceDetalle _ServiceDetalle = new ServiceDetalle();
+                lista = _ServiceDetalle.GetDetalleMovimientos();
             }
             catch (Exception ex)
             {
                 //using web utils
                 Log.Error(ex, MethodBase.GetCurrentMethod());
             }
+            ViewBag.Titulo = "Transacciones";
             return View(lista);
         }
 
-        // GET: Producto/Details/5
+        // GET: Detalle/Details/5
         public ActionResult Details(int? id)
         {
-            ServiceProducto _ServiceProducto = new ServiceProducto();
-            Producto Producto = null;
+            ServiceDetalle _ServiceDetalle = new ServiceDetalle();
+            detalleMovimiento oDetalle = null;
 
             try
             {
@@ -43,82 +44,37 @@ namespace appSISUR.Controllers
                     return RedirectToAction("Index");
                 }
 
-                Producto = _ServiceProducto.GetProductoById(id.Value);
-                if (Producto == null)
-                {
-                    TempData["Message"] = "No existe el Producto solicitado";
-                    TempData["Redirect"] = "Producto";
-                    TempData["Redirect-Action"] = "IndexAdmin";
-                    // Redireccion a la captura del Error
-                    return RedirectToAction("Default", "Error");
-                }
-                ViewBag.titulo = "Detalle de Productos";
-                return View(Producto);
-            }
-            catch (Exception ex)
-            {
-                // Salvar el error en un archivo 
-                Log.Error(ex, MethodBase.GetCurrentMethod());
-                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Producto";
-                TempData["Redirect-Action"] = "IndexAdmin";
-                // Redireccion a la captura del Error
-                return RedirectToAction("Default", "Error");
-            }
-        }
-
-
-
-        public ActionResult DetailsProveedor(int? id)
-        {
-            ServiceProducto _ServiceProducto = new ServiceProducto();
-            Producto Producto = null;
-
-            try
-            {
-                // Si va null
+                oDetalle = _ServiceDetalle.GetDetalleMovimientoByConsecutivo(id.Value);
                 if (id == null)
                 {
-                    return RedirectToAction("Index");
-                }
-
-                Producto = _ServiceProducto.GetProductoByProveedor(id.Value);
-                if (Producto == null)
-                {
-                    TempData["Message"] = "No existe el Producto solicitado";
-                    TempData["Redirect"] = "Producto";
+                    TempData["Message"] = "No existe el Encabezado solicitado";
+                    TempData["Redirect"] = "Encabezado";
                     TempData["Redirect-Action"] = "IndexAdmin";
                     // Redireccion a la captura del Error
                     return RedirectToAction("Default", "Error");
                 }
-                ViewBag.titulo = "Detalle de Productos";
-                return View(Producto);
+                ViewBag.Titulo = "Detalle Movimientos";
+                return View(oDetalle);
             }
             catch (Exception ex)
             {
                 // Salvar el error en un archivo 
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Producto";
+                TempData["Redirect"] = "Encabezado";
                 TempData["Redirect-Action"] = "IndexAdmin";
                 // Redireccion a la captura del Error
                 return RedirectToAction("Default", "Error");
             }
         }
 
-
-
-
-
-
-
-        // GET: Producto/Create
+        // GET: Detalle/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Producto/Create
+        // POST: Detalle/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -134,13 +90,13 @@ namespace appSISUR.Controllers
             }
         }
 
-        // GET: Producto/Edit/5
+        // GET: Detalle/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Producto/Edit/5
+        // POST: Detalle/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -156,13 +112,13 @@ namespace appSISUR.Controllers
             }
         }
 
-        // GET: Producto/Delete/5
+        // GET: Detalle/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Producto/Delete/5
+        // POST: Detalle/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

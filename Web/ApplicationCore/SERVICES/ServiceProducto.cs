@@ -38,7 +38,8 @@ namespace ApplicationCore.SERVICES
 
         public Producto GetProductoByProveedor(int id)
         {
-            throw new NotImplementedException();
+            IRepositorioProducto repository = new repositorioProducto();
+            return repository.GetProductoByProveedor(id);
         }
 
         public IEnumerable<Producto> GetProductos()

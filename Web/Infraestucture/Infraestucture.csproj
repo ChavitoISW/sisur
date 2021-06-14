@@ -121,6 +121,7 @@
     <Compile Include="Repository\IRepositorioProveedor.cs" />
     <Compile Include="Repository\IRepositorioRol.cs" />
     <Compile Include="Repository\IRepositorioUbicacion.cs" />
+    <Compile Include="Repository\IRepositoryDetalle.cs" />
     <Compile Include="Repository\IRepositoryPosicion.cs" />
     <Compile Include="Repository\RepositorioEncabezado.cs" />
     <Compile Include="Repository\RepositorioMarca.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Repository\RepositorioRol.cs" />
     <Compile Include="Repository\RepositorioUbicacion.cs" />
     <Compile Include="Repository\RepositoryContacto.cs" />
+    <Compile Include="Repository\RepositoryDetalle.cs" />
     <Compile Include="Repository\RepositoryPosicion.cs" />
     <Compile Include="Utils\Log.cs" />
   </ItemGroup>

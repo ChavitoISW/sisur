@@ -3,6 +3,7 @@ using Infraestucture.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,8 @@ namespace Infraestucture.Repository
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                     //select * from rol
-                    lista = ctx.encabezadoMovimiento.ToList<encabezadoMovimiento>();
+                    lista = ctx.encabezadoMovimiento.Include(x => x.movimientoTipo).Include(x => x.Proveedor).Include(x => x.Persona).
+                        ToList();
                 }
                 return lista;
             }
@@ -45,7 +47,15 @@ namespace Infraestucture.Repository
 
         public encabezadoMovimiento GetMovimientoByConsecutivo(int consecutivo)
         {
-            throw new NotImplementedException();
+            encabezadoMovimiento oEncabezado = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oEncabezado = ctx.encabezadoMovimiento.Where(x => x.consMovimiento == consecutivo).
+                    Include(x => x.movimientoTipo).Include(x => x.Proveedor).Include(x => x.Persona).Include(x => x.detalleMovimiento).
+                    FirstOrDefault();
+            }
+            return oEncabezado;
         }
 
         public encabezadoMovimiento GetMovimientoByEmpleado(int empleado)

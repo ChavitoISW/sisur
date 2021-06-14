@@ -29,7 +29,7 @@ namespace Infraestucture.Repository
             {
                 ctx.Configuration.LazyLoadingEnabled = false;
                 oProducto = ctx.Producto.
-                    Where(l => l.idProducto == id).Include(l => l.Marca).
+                    Where(l => l.idProducto == id).Include(l => l.Marca).Include(l => l.Contacto).
                             FirstOrDefault();
             }
             return oProducto;
@@ -47,7 +47,15 @@ namespace Infraestucture.Repository
 
         public Producto GetProductoByProveedor(int id)
         {
-            throw new NotImplementedException();
+            Producto oProducto = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oProducto = ctx.Producto.
+                    Where(l => l.codProveedor == id).Include(l => l.Marca).Include(l => l.Contacto).
+                            FirstOrDefault();
+            }
+            return oProducto;
         }
 
         public IEnumerable<Producto> GetProductos()

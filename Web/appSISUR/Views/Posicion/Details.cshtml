@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Titulo</h2>
 
 <div>
     <h4>posicion</h4>
@@ -48,6 +48,15 @@
         <dd>
             @Html.DisplayFor(model => model.Producto.codProveedor)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.Marca.nombreMarca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.Marca.nombreMarca)
+        </dd>
+     
 
     </dl>
 </div>

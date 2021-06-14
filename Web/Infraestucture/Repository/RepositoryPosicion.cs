@@ -37,7 +37,7 @@ namespace Infraestucture.Repository
             using (MyContext ctx = new MyContext())
             {
                 ctx.Configuration.LazyLoadingEnabled = false;
-                oPosicion = ctx.posicion.Where(x => x.idUbicacion  == id).Include(x => x.Ubicacion).Include(x => x.Producto)
+                oPosicion = ctx.posicion.Where(x => x.idUbicacion  == id).Include(x => x.Ubicacion).Include(x => x.Producto).Include(x => x.Producto.Marca).Include(x => x.Producto.Contacto)
                     .FirstOrDefault();
             }
             return oPosicion;
