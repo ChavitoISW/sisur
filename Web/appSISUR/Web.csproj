@@ -144,6 +144,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ContactoController.cs" />
+    <Compile Include="Controllers\PosicionController.cs" />
     <Compile Include="Controllers\EncabezadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcaController.cs" />
@@ -333,10 +335,16 @@
     <Content Include="Views\Marca\Index.cshtml" />
     <Content Include="Views\Movimiento\Index.cshtml" />
     <Content Include="Views\Persona\Index.cshtml" />
-    <Content Include="Views\Producto\Index.cshtml" />
     <Content Include="Views\Proveedor\Index.cshtml" />
     <Content Include="Views\Ubicacion\Index.cshtml" />
     <Content Include="Views\Encabezado\Index.cshtml" />
+    <Content Include="Views\Posicion\Index.cshtml" />
+    <Content Include="Views\Contacto\Index.cshtml" />
+    <Content Include="Views\Posicion\IndexAdmin.cshtml" />
+    <Content Include="Views\Posicion\Details.cshtml" />
+    <Content Include="Views\Producto\Index.cshtml" />
+    <Content Include="Views\Producto\Details.cshtml" />
+    <Content Include="Views\Rol\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

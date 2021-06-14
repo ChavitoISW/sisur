@@ -10,16 +10,32 @@ using System.Web.Mvc;
 
 namespace appSISUR.Controllers
 {
-    public class ProductoController : Controller
+    public class PosicionController : Controller
     {
-        // GET: Producto
+        // GET: CPosicion
         public ActionResult Index()
         {
-            IEnumerable<Producto> lista = null;
+            IEnumerable<posicion> lista = null;
             try
             {
-                IServiceProducto _ServiceProducto = new ServiceProducto();
-                lista = _ServiceProducto.GetProductos();
+                IServicePosicion _ServicePosicion = new ServicePosicion();
+                lista = _ServicePosicion.GetPsicion();
+            }
+            catch (Exception ex)
+            {
+                //using web utils
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+            }
+            ViewBag.titulo = "Listado de Productos";
+            return View(lista);
+        }
+        public ActionResult IndexAdmin()
+        {
+            IEnumerable<posicion> lista = null;
+            try
+            {
+                IServicePosicion _ServicePosicion = new ServicePosicion();
+                lista = _ServicePosicion.GetPsicion();
             }
             catch (Exception ex)
             {
@@ -29,11 +45,12 @@ namespace appSISUR.Controllers
             return View(lista);
         }
 
-        // GET: Producto/Details/5
+
+        // GET: CPosicion/Details/5
         public ActionResult Details(int? id)
         {
-            ServiceProducto _ServiceProducto = new ServiceProducto();
-            Producto Producto = null;
+            ServicePosicion _ServicePosicion = new ServicePosicion();
+            posicion Posicion = null;
 
             try
             {
@@ -43,40 +60,36 @@ namespace appSISUR.Controllers
                     return RedirectToAction("Index");
                 }
 
-                Producto = _ServiceProducto.GetProductoById(id.Value);
-                if (Producto == null)
+                Posicion = _ServicePosicion.getDetalleById(id.Value);
+                if (Posicion == null)
                 {
-                    TempData["Message"] = "No existe el Producto solicitado";
-                    TempData["Redirect"] = "Producto";
+                    TempData["Message"] = "No existe el Posicion solicitado";
+                    TempData["Redirect"] = "Posicion";
                     TempData["Redirect-Action"] = "IndexAdmin";
                     // Redireccion a la captura del Error
                     return RedirectToAction("Default", "Error");
                 }
-                ViewBag.titulo = "Detalle de Productos";
-                return View(Producto);
+                return View(Posicion);
             }
             catch (Exception ex)
             {
                 // Salvar el error en un archivo 
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Producto";
+                TempData["Redirect"] = "Posicion";
                 TempData["Redirect-Action"] = "IndexAdmin";
                 // Redireccion a la captura del Error
                 return RedirectToAction("Default", "Error");
             }
         }
 
-
-
-
-        // GET: Producto/Create
+        // GET: CPosicion/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Producto/Create
+        // POST: CPosicion/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -92,13 +105,13 @@ namespace appSISUR.Controllers
             }
         }
 
-        // GET: Producto/Edit/5
+        // GET: CPosicion/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Producto/Edit/5
+        // POST: CPosicion/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -114,13 +127,13 @@ namespace appSISUR.Controllers
             }
         }
 
-        // GET: Producto/Delete/5
+        // GET: CPosicion/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Producto/Delete/5
+        // POST: CPosicion/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

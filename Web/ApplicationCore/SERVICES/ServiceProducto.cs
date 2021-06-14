@@ -10,6 +10,11 @@ namespace ApplicationCore.SERVICES
 {
    public class ServiceProducto : IServiceProducto
     {
+        public void DeleteProducto(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Producto GetProductoByCodigo(int id)
         {
             throw new NotImplementedException();
@@ -17,7 +22,8 @@ namespace ApplicationCore.SERVICES
 
         public Producto GetProductoById(int id)
         {
-            throw new NotImplementedException();
+            IRepositorioProducto repository = new repositorioProducto();
+            return repository.GetProductoById(id);
         }
 
         public Producto GetProductoByMarca(string marca)
@@ -39,6 +45,17 @@ namespace ApplicationCore.SERVICES
         {
             IRepositorioProducto repositoryProducto = new repositorioProducto();
             return repositoryProducto.GetProductos();
+        }
+
+        public IEnumerable<Producto> GetProductosById(int idProducto)
+        {
+            IRepositorioProducto repositoryProducto = new repositorioProducto();
+            return repositoryProducto.GetProductosById(idProducto);
+        }
+
+        public Producto save(Producto producto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -3,7 +3,6 @@ using Infraestucture.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
-//esta referencia a pie
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -11,23 +10,23 @@ using System.Threading.Tasks;
 
 namespace Infraestucture.Repository
 {
-    public class RepositorioPersona : IRepositorioPersona
+    public class RepositoryContacto : IRepositoryContacto
     {
-        public void DeletePersona(int id)
+        public void DeleteContacto(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Persona> GetPersona()
+        public IEnumerable<Contacto> GetContacto()
         {
             try
             {
-                IEnumerable<Persona> lista = null;
+                IEnumerable<Contacto> lista = null;
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                     //select * from rol
-                    lista = ctx.Persona.Include(x=>x.Rol).ToList();
+                    lista = ctx.Contacto.Include(x=>x.Persona).Include(x=>x.Producto).Include(x=> x.Proveedor).ToList();
                 }
                 return lista;
             }
@@ -44,29 +43,16 @@ namespace Infraestucture.Repository
                 throw;
             }
         }
-
-        public Persona GetPersonaById(int id)
+        public Contacto GetContactoByProducto(int id)
         {
-            Persona oPersona = null;
-            using (MyContext ctx= new MyContext())
-            {
-                ctx.Configuration.LazyLoadingEnabled = false;
-                oPersona = ctx.Persona.Where(x => x.codPersona == id).FirstOrDefault();
-            }
-            return oPersona;
+            throw new NotImplementedException();
         }
-
-        public Persona GetPersonaByNombre(string nombrePersona)
+        public Contacto GetContactoByProveedor(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Persona GetPersonaByRol(int rol)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Persona Save(Persona persona)
+        public Contacto Save(Contacto contacto)
         {
             throw new NotImplementedException();
         }

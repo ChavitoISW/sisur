@@ -1,0 +1,57 @@
+﻿@model Infraestucture.Models.posicion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>posicion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.descripcionProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.descripcionProducto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ubicacion.descUbicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ubicacion.descUbicacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.costo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.costo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.codProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.codProveedor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new {  id = Model.idUbicacion }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

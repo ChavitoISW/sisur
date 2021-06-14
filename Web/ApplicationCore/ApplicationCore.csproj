@@ -42,17 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SERVICES\IServiceContacto.cs" />
     <Compile Include="SERVICES\IServiceMarca.cs" />
     <Compile Include="SERVICES\IServiceMovimiento.cs" />
     <Compile Include="SERVICES\IServicePersona.cs" />
+    <Compile Include="SERVICES\IServicePosicion.cs" />
     <Compile Include="SERVICES\IServiceProducto.cs" />
     <Compile Include="SERVICES\IServiceProveedor.cs" />
     <Compile Include="SERVICES\IServiceRol.cs" />
     <Compile Include="SERVICES\IServiceUbicacion.cs" />
     <Compile Include="SERVICES\IServicoEncabezado.cs" />
+    <Compile Include="SERVICES\ServiceContacto.cs" />
     <Compile Include="SERVICES\ServiceMarca.cs" />
     <Compile Include="SERVICES\ServiceMovimiento.cs" />
     <Compile Include="SERVICES\ServicePersona.cs" />
+    <Compile Include="SERVICES\ServicePosicion.cs" />
     <Compile Include="SERVICES\ServiceProducto.cs" />
     <Compile Include="SERVICES\ServiceProveedor.cs" />
     <Compile Include="SERVICES\ServiceRol.cs" />

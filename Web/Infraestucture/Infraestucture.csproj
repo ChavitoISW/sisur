@@ -70,6 +70,7 @@
     <Compile Include="Models\Marca.cs">
       <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Metada.cs" />
     <Compile Include="Models\movimientoTipo.cs">
       <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
@@ -111,6 +112,7 @@
       <DependentUpon>myModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepositoryContacto.cs" />
     <Compile Include="Repository\IRepositorioEncabezado.cs" />
     <Compile Include="Repository\IRepositorioMarca.cs" />
     <Compile Include="Repository\IRepositorioMovimiento.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Repository\IRepositorioProveedor.cs" />
     <Compile Include="Repository\IRepositorioRol.cs" />
     <Compile Include="Repository\IRepositorioUbicacion.cs" />
+    <Compile Include="Repository\IRepositoryPosicion.cs" />
     <Compile Include="Repository\RepositorioEncabezado.cs" />
     <Compile Include="Repository\RepositorioMarca.cs" />
     <Compile Include="Repository\RepositorioMovimiento.cs" />
@@ -127,6 +130,8 @@
     <Compile Include="Repository\RepositorioProveedor.cs" />
     <Compile Include="Repository\RepositorioRol.cs" />
     <Compile Include="Repository\RepositorioUbicacion.cs" />
+    <Compile Include="Repository\RepositoryContacto.cs" />
+    <Compile Include="Repository\RepositoryPosicion.cs" />
     <Compile Include="Utils\Log.cs" />
   </ItemGroup>
   <ItemGroup>

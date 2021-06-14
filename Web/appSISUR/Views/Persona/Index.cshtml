@@ -12,9 +12,7 @@
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.codPersona)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.nombrePersona)
         </th>
@@ -25,17 +23,14 @@
             @Html.DisplayNameFor(model => model.telefonoPersona)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.contrasena)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.pais)
         </th>
-        <th>
+       <!-- <th>
             @Html.DisplayNameFor(model => model.estado)
-        </th>
+        </th>-->
         <th>
             @Html.DisplayNameFor(model => model.Rol.descripcionRol)
         </th>
@@ -43,40 +38,35 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.codPersona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombrePersona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccionPersona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefonoPersona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contrasena)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pais)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rol.descripcionRol)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idPersona }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idPersona }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idPersona })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombrePersona)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.direccionPersona)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.telefonoPersona)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.pais)
+    </td>
+    <!--   <td>
+           @Html.DisplayFor(modelItem => item.estado)
+       </td>-->
+    <td>
+        @Html.DisplayFor(modelItem => item.Rol.descripcionRol)
+    </td>
+    <!--  <td>
+          @Html.ActionLink("Edit", "Edit", new { id=item.idPersona }) |
+          @Html.ActionLink("Details", "Details", new { id=item.idPersona }) |
+          @Html.ActionLink("Delete", "Delete", new { id=item.idPersona })
+      </td>-->
+</tr>
 }
 
 </table>

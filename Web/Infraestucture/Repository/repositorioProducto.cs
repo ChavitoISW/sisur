@@ -3,6 +3,7 @@ using Infraestucture.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,11 @@ namespace Infraestucture.Repository
 {
    public class repositorioProducto : IRepositorioProducto
     {
+        public void DeleteProducto(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Producto GetProductoByCodigo(int id)
         {
             throw new NotImplementedException();
@@ -18,7 +24,15 @@ namespace Infraestucture.Repository
 
         public Producto GetProductoById(int id)
         {
-            throw new NotImplementedException();
+            Producto oProducto = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oProducto = ctx.Producto.
+                    Where(l => l.idProducto == id).Include(l => l.Marca).
+                            FirstOrDefault();
+            }
+            return oProducto;
         }
 
         public Producto GetProductoByMarca(string marca)
@@ -45,7 +59,7 @@ namespace Infraestucture.Repository
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                     //select * from rol
-                    lista = ctx.Producto.ToList<Producto>();
+                    lista = ctx.Producto.Include(x =>x.Marca).ToList();
                 }
                 return lista;
             }
@@ -61,6 +75,23 @@ namespace Infraestucture.Repository
                 Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
                 throw;
             }
+        }
+
+        public IEnumerable<Producto> GetProductosById(int idProducto)
+        {
+            IEnumerable<Producto> lista = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                lista = ctx.Producto.Where(l => l.idProducto == idProducto).Include(l => l.Marca).Include(l => l.posicion).Include(l => l.Contacto).
+                    ToList();
+            }
+            return lista;
+        }
+
+        public Producto save(Producto producto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -12,12 +12,11 @@
 
 <table class="table">
     <tr>
+       
         <th>
-            @Html.DisplayNameFor(model => model.idProducto)
+            @Html.DisplayNameFor(model => model.codProducto)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.codProveedor)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.descripcionProducto)
         </th>
@@ -33,50 +32,45 @@
         <th>
             @Html.DisplayNameFor(model => model.costo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Marca.nombreMarca)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.codProveedor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcionProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modeloProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cantMaxima)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cantMinima)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.costo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Marca.nombreMarca)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.codProducto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.codProducto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.codProducto })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+<tr>
+    
+    <td>
+        @Html.DisplayFor(modelItem => item.codProducto)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.descripcionProducto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.modeloProducto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cantMaxima)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cantMinima)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.costo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Marca.nombreMarca)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.idProducto }) |
+        @Html.ActionLink("Detalles", "Details", new { id = item.idProducto }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.codProducto })
+    </td>
+</tr>
+    }
 
 </table>

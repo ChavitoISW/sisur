@@ -13,5 +13,7 @@ namespace Infraestucture.Repository
         Persona GetPersonaById(int id);
         Persona GetPersonaByNombre(String nombrePersona);
         Persona GetPersonaByRol(int rol);
+        Persona Save(Persona persona);
+        void DeletePersona(int id);
     }
 }
