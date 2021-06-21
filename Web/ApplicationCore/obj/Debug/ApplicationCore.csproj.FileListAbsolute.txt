@@ -26,3 +26,17 @@ D:\isw\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.csproj.CoreCo
 D:\isw\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.csproj.CopyComplete
 D:\isw\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.dll
 D:\isw\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.pdb
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\ApplicationCore.dll
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\ApplicationCore.pdb
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\Infraestucture.dll
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\log4net.dll
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\EntityFramework.dll
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\Infraestucture.pdb
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\Infraestucture.dll.config
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\log4net.xml
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\bin\Debug\EntityFramework.xml
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.csprojAssemblyReference.cache
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.csproj.CopyComplete
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.dll
+C:\Users\dacas\Desktop\SISUR1\proyectosisur\Web\ApplicationCore\obj\Debug\ApplicationCore.pdb

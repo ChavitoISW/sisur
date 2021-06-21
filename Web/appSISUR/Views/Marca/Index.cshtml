@@ -7,9 +7,6 @@
 <h2>Marcas</h2>
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
 <table class="table">
     <tr>
@@ -19,7 +16,8 @@
         <th>
             @Html.DisplayNameFor(model => model.estado)
         </th>
-        <th></th>
+        
+        <th>Acciones</th>
     </tr>
 
 @foreach (var item in Model) {
