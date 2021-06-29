@@ -27,5 +27,10 @@ namespace ApplicationCore.SERVICES
             IRepositoryContacto repositoryContacto = new RepositoryContacto();
             return repositoryContacto.GetContactoByProveedor(id);
         }
+
+        public Contacto Save(Contacto contacto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace ApplicationCore.SERVICES
     {
         IEnumerable<Contacto> GetContacto();
         Contacto GetContactoByProveedor(int id);
-        Contacto GetContactoByProducto(int id);    
+        Contacto GetContactoByProducto(int id);
+        Contacto Save(Contacto contacto);
     }
 }

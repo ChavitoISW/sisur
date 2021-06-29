@@ -1,4 +1,5 @@
-﻿using Infraestucture.Models;
+﻿using ApplicationCore.Utils;
+using Infraestucture.Models;
 using Infraestucture.Repository;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace ApplicationCore.SERVICES
             return repositoryPersona.GetPersona();
         }
 
+       
         public Persona GetPersonaById(int id)
         {
             throw new NotImplementedException();
@@ -30,5 +32,14 @@ namespace ApplicationCore.SERVICES
         {
             throw new NotImplementedException();
         }
+
+        public Persona GetPersonaLogin(string idPersona, string password)
+        {
+            IRepositorioPersona repository = new RepositorioPersona();
+            // Encriptar el password para poder compararlo
+            string crytpPasswd = Cryptography.EncrypthAES(password);
+            return repository.GetPersonaLogin(idPersona, crytpPasswd);
+        }
+
     }
 }

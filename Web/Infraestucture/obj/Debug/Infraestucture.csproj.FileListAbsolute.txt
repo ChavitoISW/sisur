@@ -26,3 +26,17 @@ D:\isw\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.csproj.CopyComp
 D:\isw\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.dll
 D:\isw\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.pdb
 D:\isw\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.csprojAssemblyReference.cache
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\Infraestucture.dll.config
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\Infraestucture.dll
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\Infraestucture.pdb
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\EntityFramework.dll
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\log4net.dll
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\EntityFramework.xml
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\bin\Debug\log4net.xml
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.csprojAssemblyReference.cache
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.csproj.CoreCompileInputs.cache
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.csproj.CopyComplete
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.dll
+C:\Users\dacas\Desktop\SISUR\proyectosisur\Web\Infraestucture\obj\Debug\Infraestucture.pdb

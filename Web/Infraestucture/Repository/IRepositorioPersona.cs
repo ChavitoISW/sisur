@@ -15,5 +15,6 @@ namespace Infraestucture.Repository
         Persona GetPersonaByRol(int rol);
         Persona Save(Persona persona);
         void DeletePersona(int id);
+        Persona GetPersonaLogin(string idPersona, string password);
     }
 }

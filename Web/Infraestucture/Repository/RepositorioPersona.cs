@@ -66,6 +66,11 @@ namespace Infraestucture.Repository
             throw new NotImplementedException();
         }
 
+        public Persona GetPersonaLogin(string idPersona, string password)
+        {
+            throw new NotImplementedException();
+        }
+
         public Persona Save(Persona persona)
         {
             throw new NotImplementedException();

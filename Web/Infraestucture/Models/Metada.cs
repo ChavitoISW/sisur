@@ -12,7 +12,7 @@ namespace Infraestucture.Models
         [Display(Name="Identificador Ubicación")]
         public int idUbicacion { get; set; }
 
-        [Display(Name = "Codigo Producto")]
+        [Display(Name = "Código Producto")]
         public int codProducto { get; set; }
 
         [Display(Name = "Cantidad")]
@@ -71,7 +71,7 @@ namespace Infraestucture.Models
         [Display(Name = "Marca")]
         public virtual Marca Marca { get; set; }
 
-        [Display(Name = "Posicion")]
+        [Display(Name = "Posición")]
         public virtual ICollection<posicion> posicion { get; set; }
     }
 
@@ -93,7 +93,7 @@ namespace Infraestucture.Models
 
     internal partial class personaMetadata
     {
-        [Display(Name = "Codigo")]
+        [Display(Name = "Código")]
         public int codPersona { get; set; }
 
         [Display(Name = "Id. Persona")]
@@ -174,7 +174,7 @@ namespace Infraestucture.Models
 
     internal partial class encabezadoMetadata
     {
-        [Display(Name = "# Movimiento")]
+        [Display(Name = "N° Movimiento")]
         public int consMovimiento { get; set; }
 
         [Display(Name = "Id Tipo Movimiento")]
@@ -217,7 +217,7 @@ namespace Infraestucture.Models
 
     internal partial class movimientoTipoMetadata
     {
-        [Display(Name = "# Movimiento")]
+        [Display(Name = "N° Movimiento")]
         public int idMovimientoTipo { get; set; }
 
         [Display(Name = "Movimiento")]

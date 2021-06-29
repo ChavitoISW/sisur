@@ -13,5 +13,6 @@ namespace ApplicationCore.SERVICES
         Persona GetPersonaById(int id);
         Persona GetPersonaByNombre(String nombrePersona);
         Persona GetPersonaByRol(int rol);
+        Persona GetPersonaLogin(string idPersona, string password);
     }
 }
