@@ -29,7 +29,7 @@ namespace Infraestucture.Repository
             {
                 ctx.Configuration.LazyLoadingEnabled = false;
                 oProducto = ctx.Producto.
-                    Where(l => l.idProducto == id).Include(l => l.Marca).Include(l => l.Contacto).
+                    Where(l => l.idProducto == id).Include(l => l.Marca).Include(l => l.Contacto).Include(p => p.posicion).Include("posicion.Ubicacion").
                             FirstOrDefault();
             }
             return oProducto;
