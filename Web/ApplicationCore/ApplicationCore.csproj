@@ -64,6 +64,7 @@
     <Compile Include="SERVICES\ServiceRol.cs" />
     <Compile Include="SERVICES\ServiceUbicacion.cs" />
     <Compile Include="SERVICES\ServicioEncabezado.cs" />
+    <Compile Include="Utils\Cryptography.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOS\" />
