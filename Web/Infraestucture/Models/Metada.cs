@@ -35,7 +35,7 @@ namespace Infraestucture.Models
         [Display(Name = "Id. Producto")]
         public int idProducto { get; set; }
 
-        [Display(Name = "Codigo")]
+        [Display(Name = "Código")]
         public int codProducto { get; set; }
 
         [Display(Name = "Cod. Proveedor")]
@@ -108,7 +108,7 @@ namespace Infraestucture.Models
         [Display(Name = "Dirección")]
         public string direccionPersona { get; set; }
 
-        [Display(Name = "Telefono")]
+        [Display(Name = "Teléfono")]
         public string telefonoPersona { get; set; }
      
         public string contrasena { get; set; }
@@ -150,7 +150,7 @@ namespace Infraestucture.Models
         [Display(Name = "Id Proveedor")]
         public int idProveedor { get; set; }
 
-        [Display(Name = "Codigo Proveedor")]
+        [Display(Name = "Código Proveedor")]
         public int codProveedor { get; set; }
 
         [Display(Name = "Proveedor")]
